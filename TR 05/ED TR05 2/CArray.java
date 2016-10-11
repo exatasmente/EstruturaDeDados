@@ -1,0 +1,168 @@
+public class CArray<Item>
+{
+    private  int MAX=4;
+    private Item F[];
+    private int f , t;
+
+    public CArray() {
+
+        F =  (Item[]) new Comparable[MAX];
+        f=0;
+        t=0;
+    }
+
+    public void add(Item E)
+    {
+        if(t+1 ==MAX)
+            arrayUp();
+            
+        F[t]=E;
+        t = (t+1)%MAX;
+
+    }
+
+    public Item remove()
+    {
+        Item Aux =  null;
+        if (this.f%MAX >= (this.MAX/2) )
+        {
+            arrayDown();
+
+        }
+              
+        if(isEmpty())
+        {
+            return Aux; 
+        }
+
+        else
+        {
+            Aux = F[f];
+            F[f]= null;
+
+            f = (f+1)%MAX;
+
+            return Aux;
+        }
+
+    }
+
+    private void arrayUp() 
+    {
+        Item[] novoArray = (Item[]) new Comparable[MAX * 2];
+        int p=0;
+        for(int i =f%MAX; i<t%MAX;i++)
+        {    
+            novoArray[p] = F[i];
+            p++;
+        }
+        MAX=MAX*2;
+        f=0;
+        t=p;
+
+        this.F = novoArray;
+        System.out.println("A Capacidade do Array foi Incrementada Para: "+MAX+"\n\n");
+    }
+
+    public int size()
+    {
+
+        return (t-f)%MAX;
+
+    }
+    
+    public boolean contain(Item E) 
+    {
+
+        for (int i = f%MAX; i < t%MAX; i++) 
+        {
+            if (this.F[i].equals(E)) 
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void arrayDown() 
+    {
+        if(MAX == 3)
+        {
+            System.out.println("Capacidade Minima \n\n");
+        }   
+        else
+        {
+            
+            int max =(int) ((int) MAX*0.75);
+            
+            Item[] novoArray =(Item[]) new Comparable[max];
+            int p=0;
+            for(int i =f%MAX; i<t%MAX;i++)
+            {    
+                novoArray[p] = F[i];
+                p++;
+            }
+            MAX=max;
+            f=0;
+            t=p;
+            
+            this.F = novoArray;
+            System.out.println("A Capacidade do Array foi Decrementada Para: "+MAX+"\n\n");
+        }
+    }
+    
+    public void clear()
+    {
+        int i;
+        for(i =f%MAX; i<t%MAX;i++)
+        {
+            this.F[i]=null;
+        }
+        f=0;
+        t=0;
+    }
+
+    public void printAll()
+    {
+        int i;
+        for(i =f%MAX; i<t%MAX;i++)
+        {
+            System.out.println("ID:"+i+"\nObjeto: "+this.F[i]+"\n\n");   
+        }
+    }
+
+    public boolean print(int ind)
+    {
+        ind= (ind+f)%MAX;
+        if (!this.posicaoValida(ind)) {
+            throw new IllegalArgumentException("Posição não existe");
+        }
+        System.out.println("ID:"+ind+"\nObjeto: "+this.F[ind]+"\n\n");      
+        return true;
+    }
+
+    protected boolean posicaoValida(int p) 
+    {
+
+        return p <= t%MAX && p >= f%MAX;
+    }
+
+    protected boolean isEmpty()
+    {
+        return t==f;
+
+    }
+
+    protected boolean isFull()
+    {
+        if( (t+1)%MAX == f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+}

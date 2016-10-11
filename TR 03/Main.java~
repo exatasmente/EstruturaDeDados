@@ -1,0 +1,225 @@
+import java.util.Scanner;
+public class Main 
+{
+    private static int r=0;
+    private static int e= 0;
+    private static ListaEncadeada< Object > L = new ListaEncadeada< Object >();
+    private static Scanner input = new Scanner (System.in);
+    public static void main(String[] args) 
+    {
+        
+         while(e !=-2){
+        System.out.println("1->Adicionar no Começo\n2->Adiciona no Fim \n3->Adiciona em qualquer posição válida \n4->Remover Primeiro\n5->Remover Ultimo\n6->Remover Qualquer Elemento\n");
+        System.out.println("7->Remove por elemento na primeira ocorrência\n8->Remove por elemento na Ultima ocorrência\n9->Busca a Primeira ocorrência de um Elemento\n10->Busca a Última ocorrência de um Elemento\n11->Verifica se contem o Elemento na Lista\n12->imprime um único elemento\n");
+        System.out.println("13->Exibe todos o Elementos\n14->Verifica o Tamanho da Lista\n15->Revifica se o Array está Vazio\n16->Verifica se a Posição é válida\n");
+        r = input.nextInt();
+        switch(r)
+        {
+            case 1:
+                M1();
+                break;
+            case 2:
+                M2();
+                break;
+            case 3:
+                M3();
+                break;
+            case 4:
+                M4();
+                break;                
+            case 5:
+                M5();
+                break;                
+            case 6:
+                M6();
+                break;                
+            case 7:
+                M7();
+                break;                
+            case 8:
+                M8();
+                break;                
+            case 9:
+                M9();
+                break;                
+            case 10:
+                M10();
+                break;                
+            case 11:
+                M11();
+                break;                
+            case 12:
+                M12();
+                break;                
+            case 13:
+                M13();
+                break;                
+            case 14:
+                M14();
+                break;                
+            case 15:
+                M15();
+                break;                
+            case 16:
+                M16();
+                break;
+            
+        }
+    }
+    }
+
+    public static void M1()
+    {
+        Object M;
+        System.out.println("Digite o Valor a ser armazenado");
+        M = input.next();
+        L.addFirst(M);
+        L.print(0);
+        e++;
+    
+    }
+
+    public static void M2()
+    {
+        int p;
+        Object M;
+        System.out.println("Digite o Valor a ser armazenado");
+        M = input.next();
+        L.addLast(M);
+        L.print(e);
+        e++;
+          
+    }
+
+    public static void M3()
+    {
+        int p;
+        Object M;
+        System.out.println("Digite o Valor a ser armazenado");
+        M = input.next();
+        System.out.println("Digite a Posição");
+        p =input.nextInt();
+        L.add(p,M);
+        L.print(p);
+        e++;
+          
+
+    }
+
+    public static void M4()
+    {
+        Object R;
+        R= L.removeFirst();
+        e--;
+         System.out.println(R);
+    }
+    public static void M5()
+    {
+      Object R;
+       R= L.removeLast();
+        e--;
+         
+    }
+
+    public static void M6()
+    {
+        int i,f;
+        L.printAll();
+        System.out.println("Digite o Id do Elemento");
+        i = input.nextInt();
+        L.remove(i);
+        e--;
+         
+    }
+
+    public static void M7()
+    {
+        Object M;
+        System.out.println("Digite o Valor a ser Excluido");
+        M = input.next();
+        L.remove(M);
+         
+    }
+
+    public static void M8()
+    {
+        
+        Object M;
+        System.out.println("Digite o Valor a ser Excluido");
+        M = input.next();
+        L.removeL(M);
+         
+        
+    }
+
+    public static void M9()
+    {
+        Object M;
+        int ind;
+        System.out.println("Digite o Valor a ser Procurado");
+        M = input.next();
+        ind =L.lastIndexOf(M);
+        L.print(ind);
+         
+    }
+
+    public static void M10()
+    {
+        Object M;
+        int ind;
+        System.out.println("Digite o Valor a ser Procurado");
+        M = input.next();
+        ind =L.indexOf(M);
+        L.print(ind);
+         
+    }
+
+    public static void M11()
+    {
+        Object M;
+        System.out.println("Digite o Valor a ser Procurado");
+        M = input.next();
+        System.out.println(L.contain(M));
+         
+    }    
+
+    public static void M12()
+    {
+       int p;
+        System.out.println("Digite o Valor a ser impresso ");
+        p =input.nextInt();
+
+        L.print(p);
+         
+    }
+
+    public static void M13()
+    {
+       L.printAll();
+        
+    }
+
+    public static void M14()
+    {
+     System.out.println(L.size());
+             
+    }
+  
+    public static void M15()
+    {
+        System.out.println(L.isEmpty());
+         
+    }
+
+    public static void M16()
+    {
+        int p;
+        System.out.println("Digite um Valor");
+        p =input.nextInt();
+        System.out.println(L.posicaoValida(p));
+         
+    }
+    
+    
+  
+}

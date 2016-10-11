@@ -1,0 +1,171 @@
+import java.util.Scanner;
+/**
+ * Classe Pridutos
+ * Trabalho 1 
+ * Questão 1 
+ * Disciplina :Estrutura de dados 
+ * Curso: Ciência da Computação Ano: 2016.1 Semestre: 2°
+ * 
+ * @author Luiz
+ * @version 29/08/2016
+ */public class Produtos
+{
+    int id;
+    int codigo;
+    String nomeProduto;
+    long quantidade;
+    double precoProduto;
+    String fabricante;
+    String tipo;
+    Scanner input = new Scanner (System.in);
+    
+     /**
+     * COnstrutor
+     * Gera um novo objeto no ArrayList
+     * @param   id, codigo, nomeProduto , quantidade , precoProduto , fabricante , tipo
+     */ 
+    public Produtos(int id,int codigo,String nomeProduto,long quantidade,double precoProduto,String fabricante,String tipo)
+    {
+        this.id = id;
+        this.codigo = codigo;
+        this.nomeProduto = nomeProduto;
+        this.quantidade= quantidade;
+        this.precoProduto = precoProduto;
+        this.fabricante  = fabricante;
+        this.tipo = tipo;
+    }
+    
+     /**
+     *Imprimir
+     * Exibe na tela um Objeto do ArrayList 
+     * @param   id, codigo, nomeProduto , quantidade , precoProduto , fabricante , tipo
+     *  
+     */
+    public void Imprimir()
+    {
+        System.out.printf("-------------------------------\n");
+        System.out.printf("ID:                  %d\n",id);
+        System.out.printf("CODIGO:              %d\n",codigo);
+        System.out.printf("FABRICANTE:          %s\n",fabricante);
+        System.out.printf("NOME:                %s\n",nomeProduto);
+        System.out.printf("QUANTIDADE:          %d\n",quantidade);
+        System.out.printf("PREÇO:               %.2f\n",precoProduto);
+        System.out.printf("-------------------------------\n");
+
+    }
+    
+    /**
+    *setCod
+    * Cria ou Altera a Variavél "codigo" no Objeto do ArrayList 
+    * @param   codigo
+    */
+    public void SetCod(int codigo)
+    {
+        this.codigo = codigo;
+    }
+     /**
+    *getCod
+    * Retorna Variavél "codigo" no Objeto do ArrayList 
+    * @return codigo
+    */
+    public int GetCod()
+    {
+       return codigo;
+    }
+     /**
+     *setPreco
+     * Cria ou Altera a Variavél "precoProduto" no Objeto do ArrayList 
+     * @param  precoProduto
+     */
+    public void SetPreco(double precoProduto)
+    {
+        this.precoProduto = precoProduto;
+    }
+    
+     /**
+     *getPreco
+     * Retorna Variavél "precoProduto" no Objeto do ArrayList 
+     * @return precoProduto
+     */
+    public double GetPreco()
+    {
+        return precoProduto;
+    }
+    
+     /**
+     *setNome
+     * Cria ou Altera a Variavél "nomeProduto" no Objeto do ArrayList 
+     * @param  nomeProduto
+     */
+    public void SetNome(String nomeProduto)
+    {
+        this.nomeProduto = nomeProduto;
+    }
+     /**
+     *getNome
+     * Retorna Variavél "nomeProduto" no Objeto do ArrayList 
+     * @return nomeProduto
+     */
+    public String GetNome()
+    {
+        return nomeProduto;
+    }
+     /**
+     *setFab
+     * Cria ou Altera a Variavél "fabricante" no Objeto do ArrayList 
+     * @param  fabriacante
+     */
+    public void SetFab(String fabricante)
+    {
+
+        this.fabricante = fabricante;
+    }
+     /**
+     *getFab
+     * Retorna Variavél "fabricante" no Objeto do ArrayList 
+     * @return fabricante
+     */
+    public String GetFab()
+    {
+        return fabricante;
+    }
+     /**
+     *setTipo
+     * Cria ou Altera a Variavél "tipo" no Objeto do ArrayList 
+     * @param  tipo
+     */
+    public void SetTipo(String tipo)
+    {
+       this.tipo = tipo;
+    }
+    
+     /**
+     *getTipo
+     * Retorna Variavél "tipo" no Objeto do ArrayList 
+     * @return tipo
+     */
+    public String GetTipo()
+    {
+        return tipo;
+    }
+      /**
+     *setQt
+     * Cria ou Altera a Variavél "quantidade" no Objeto do ArrayList 
+     * @param quantidade
+     */
+    public void SetQt(String quantidade)
+    {  
+
+        this.quantidade = quantidade;
+    }
+     /**
+     *getQt
+     * Retorna Variavél "quantidade" no Objeto do ArrayList 
+     * @return quantidade
+     */
+    public long GetQt()
+    {  
+        return quantidade;
+    }    
+    
+}

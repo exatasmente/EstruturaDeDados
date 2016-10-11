@@ -1,0 +1,182 @@
+
+/**
+ * Escreva a descrição da classe ListaLigada aqui.
+ * 
+ * @author (seu nome) 
+ * @version (número de versão ou data)
+ */
+public class ListaLigada {
+
+  private Celula primeira;
+  private Celula ultima;
+  private int e=0;
+  
+  // 1 - Adiciona  no Começo
+    public void addFirst(Object E) 
+    {    
+       Celula nova = new Celula(this.primeira, E);
+       this.primeira = nova;
+       
+       if(this.e == 0)
+       {
+           // caso especial da lista vazia
+           this.ultima = this.primeira;
+        }
+        this.e++;
+    }
+    
+    // 2 - Adiciona no Fim
+    public void addLast(Object E) 
+    {
+        if (this.e == 0) 
+        {
+            this.adicionaNoComeco(E);
+        } 
+        else 
+        {
+            Celula nova = new Celula(E);
+            this.ultima.setProxima(nova);
+            this.ultima = nova;
+            this.e++;
+        }
+    }
+  
+    // 3 - Pega por posição
+    private Celula pegaCelula(int posicao) 
+    {
+        if(!this.posicaoOcupada(posicao))
+        {
+            throw new IllegalArgumentException("Posição não existe");
+        }
+        
+        Celula atual = primeira;
+        for (int i = 0; i < posicao; i++) 
+        {
+            atual = atual.getProxima();
+        }
+        return atual;
+    }
+    
+    // 4 - Adiciona em qualquer posição válida da lista
+    public void add(int posicao, Object E) 
+    {
+        if(posicao == 0)
+        { // No começo.
+            this.adicionaNoComeco(E);
+        } 
+        else 
+            if(posicao == this.e)
+            { // No fim.
+                this.adiciona(E);
+            } 
+        else
+        {
+            Celula anterior = this.pegaCelula(posicao - 1);
+            Celula nova = new Celula(anterior.getProxima(), E);
+            anterior.setProxima(nova);
+            this.e++;
+        }
+    }
+    
+    // 5- Remove o Primeiro Elemento
+    public void removeFirst() 
+    {
+        if (!this.posicaoOcupada(0)) 
+        {
+            throw new IllegalArgumentException("Posição não existe");
+        }
+
+        this.primeira = this.primeira.getProxima();
+        this.e--;
+  
+        if (this.e == 0) 
+        {
+            this.ultima = null;
+        }
+    }
+    
+    // 6 - Remove o ultimo Elemento
+    public void removeLast() 
+    {
+        if (!this.posicaoOcupada(this.e - 1)) 
+        {
+            throw new IllegalArgumentException("Posição não existe");
+        }
+        if (this.e == 1) 
+        {
+            this.removeDoComeco();
+        } 
+        else
+        {
+            Celula penultima = this.ultima.getAnterior();
+            penultima.setProxima(null);
+            this.ultima = penultima;
+            this.e--;
+        }
+    }
+    
+    // 7 - Remove qualquer Elemento da lista
+    public void remove(int posicao) 
+    {
+        if (!this.posicaoOcupada(posicao)) 
+        {
+            throw new IllegalArgumentException("Posição não existe");
+        }
+        
+        if (posicao == 0) 
+        {
+            this.removeDoComeco();
+        } 
+        else
+        if (posicao == this.e - 1) 
+        {
+            this.removeDoFim();
+        }
+        else
+        {
+            Celula anterior = this.pegaCelula(posicao - 1);
+            Celula atual = anterior.getProxima();
+            Celula proxima = atual.getProxima();
+            
+            anterior.setProxima(proxima);
+            proxima.setAnterior(anterior);
+            
+            this.e--;
+        }
+    }
+    
+    
+    // 8 - Verifica se contem o E na Lista
+    public boolean contain(Object E) 
+    {
+        Celula atual = this.primeira;
+        
+        while (atual != null) 
+        {
+            if (atual.getE().equals(E)) 
+            {
+                return true;
+            }
+            atual = atual.getProxima();
+        }
+        return false;
+    }
+    
+    //  9 - Vertifica o Tamanho da Lista
+    public int size() 
+    {
+        return this.e;
+    }
+
+    // 10 Pega um E
+    public Object get(int posicao) 
+    {
+        return this.pegaCelula(posicao).getE();
+    }
+    
+    // 11 - Verifica se a Posição é válida
+    private boolean posicaoOcupada(int posicao)
+    {
+        return posicao >= 0 && posicao < this.e;
+    }
+}

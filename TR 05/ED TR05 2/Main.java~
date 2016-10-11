@@ -1,0 +1,130 @@
+import java.util.Scanner;
+/**
+ * Classe Main.
+ *
+ * @author Luiz Vieira Gonzaga Neto
+ * Matricula : 383842
+ * @version 20/09/2016
+ */
+
+
+public class Main
+{
+    private static int r=0;
+    private static  int e=0;
+    private static ArrayC< Object > F = new ArrayC< Object >();
+    private static Scanner input = new Scanner (System.in);
+    public static void main(String[] args)
+    {
+
+         while(r !=-2){
+        System.out.println("1->Adicionar\n2->Remover");
+        System.out.println("3->Limpar Fila\n4->Verifica se contem o Elemento\n5->imprime Todos");
+        System.out.println("6->Verifica o Tamanho\n7->Revifica se está Vazio\n8->Verifica se a Posição é válida\n");
+        r = input.nextInt();
+        switch(r)
+        {
+            case 1:
+                M1();
+                break;
+            case 2:
+                M2();
+                break;
+            case 3:
+                M3();
+                break;
+            case 4:
+                M4();
+                break;
+            case 5:
+                M5();
+                break;
+            case 6:
+                M6();
+                break;
+            case 7:
+                M7();
+                break;
+            case 8:
+                M8();
+                break;
+
+        }
+    }
+    }
+
+    public static void M1()
+    {
+        
+        Object M;
+        System.out.println("Digite o Valor a ser armazenado");
+        M = input.next();
+        F.add(M);
+        F.print(e);
+        e++;
+        
+        
+
+    }
+
+    public static void M2()
+    {
+        Object R;
+        R= F.remove();
+        if(R == null)
+        {
+            System.out.println("Fila Vazia"); 
+        }
+        else{
+            e--;
+            System.out.println(R);
+        }
+    }
+
+  public static void M3()
+    {
+        F.clear();
+        e=0;
+        
+    
+    }
+
+    public static void M4()
+    {
+        Object M;
+        System.out.println("Digite o Valor a ser Procurado");
+        M = input.next();
+        System.out.println(F.contain(M));
+
+    }
+
+   public static void M5()
+    {
+
+        F.printAll();
+
+    }
+
+    public static void M6()
+    {
+
+        System.out.println(F.size());
+
+    }
+
+    public static void M7()
+    {
+        System.out.println(F.isEmpty());
+
+    }
+
+    public static void M8()
+    {
+        int p;
+        System.out.println("Digite um Valor");
+        p =input.nextInt();
+        System.out.println(F.posicaoValida(p));
+
+    }
+
+}

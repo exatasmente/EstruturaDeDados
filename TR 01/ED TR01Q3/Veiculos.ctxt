@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=iD\ year\ cap\ time\ vis\ m\ mod\ carga
+comment0.target=Veiculos(int,\ int,\ long,\ long,\ long,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=void\ Imprimir()
+comment2.params=
+comment2.target=void\ SetCarga()
+comment3.params=
+comment3.target=void\ SetVisitas()
+comment4.params=
+comment4.target=void\ SetTempo()
+numComments=5

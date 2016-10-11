@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Celula()
+comment1.params=prox\ E
+comment1.target=Celula(Celula,\ java.lang.Object)
+comment2.params=E
+comment2.target=Celula(java.lang.Object)
+comment3.params=prox
+comment3.target=void\ setP(Celula)
+comment4.params=
+comment4.target=Celula\ getP()
+comment5.params=
+comment5.target=java.lang.Object\ getE()
+numComments=6

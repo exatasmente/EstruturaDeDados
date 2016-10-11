@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=nome\ mat\ tr\ p1\ p2\ p3
+comment0.target=Aluno(java.lang.String,\ java.lang.String,\ java.lang.String,\ float,\ float,\ float)
+comment1.params=p1\ p2\ p3
+comment1.target=void\ SetMedia(float,\ float,\ float)
+comment2.params=
+comment2.target=java.lang.String\ GetTurma()
+comment3.params=
+comment3.target=float\ GetMedia()
+comment4.params=
+comment4.target=int\ Imprimir()
+numComments=5

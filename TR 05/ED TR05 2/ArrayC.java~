@@ -1,0 +1,103 @@
+
+public class ArrayC<Item>
+{
+    Array < Item > F;
+    private  int MAX=10;
+    private int f , t;
+
+    public ArrayC() {
+
+        F = new Array(MAX);
+        f=0;
+        t=0;
+    }
+
+    public void add(Item E)
+    {
+        if(t+1 ==MAX)
+            F.ArrayUp();
+            
+        F.add(E);
+        t = (t+1)%MAX;
+
+    }
+
+    public Item remove()
+    {
+        Item Aux =  null;
+        if (this.f >= (this.MAX/2) )
+        {
+            F.ArrayDown();
+
+        }
+              
+        if(isEmpty())
+        {
+            return Aux; 
+        }
+
+        else
+        {
+            Aux = F.removeLast();
+            f = (f+1)%MAX;
+
+            return Aux;
+        }
+
+    }
+    
+    public int size()
+    {
+
+        return F.size();
+
+    }
+    
+    public boolean contain(Item E) 
+    {
+        return F.contains(E);
+    }
+
+
+    public void clear()
+    {
+        F.clear();
+        f=0;
+        t=0;
+    }
+
+    public void printAll()
+    {
+        F.printAll();
+    }
+
+    public boolean print(int ind)
+    {
+        return F.print(ind);
+    }
+
+    protected boolean posicaoValida(int p) 
+    {
+        return  F.posicaoValida(p);
+        
+    }
+
+    protected boolean isEmpty()
+    {
+        return F.isEmpty();
+
+    }
+
+    protected boolean isFull()
+    {
+        if( (t+1)%MAX == f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+}    
